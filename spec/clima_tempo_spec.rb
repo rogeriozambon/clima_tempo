@@ -1,4 +1,5 @@
 require_relative "../lib/clima_tempo"
+require "fakeweb"
 
 describe ClimaTempo do
   it "missing parameters" do
@@ -8,10 +9,9 @@ describe ClimaTempo do
   context "Values up to this moment" do
     before do
       fixture = File.open("spec/fixture/sao_paulo.html").read
-      parser = Nokogiri::HTML fixture
+      FakeWeb.register_uri(:any, "http://www.climatempo.com.br/previsao-do-tempo/cidade/558/empty", :body => fixture)
 
       @climatempo = ClimaTempo.new :code => 558
-      @climatempo.stub(:request_page).and_return parser
     end
 
     it "check object types" do

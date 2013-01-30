@@ -1,28 +1,32 @@
-= ClimaTempo
+# ClimaTempo
 
 Get brazilian weather values of the ClimaTempo.
 
-== Installation
+## Installation
 
-  gem install clima_tempo
+~~~.ruby
+gem install clima_tempo
+~~~
 
-== Usage
+## Usage
 
-  require "rubygems"
-  require "clima_tempo"
+~~~.ruby
+require "rubygems"
+require "clima_tempo"
 
-  climatempo = ClimaTempo.new :code => 558
+climatempo = ClimaTempo.new :code => 558
 
-  climatempo.now[:temperature]
-  #=> 25ºC
+climatempo.now[:temperature]
+#=> 25ºC
 
-  climatempo.now[:pressure]
-  #=> 1010 hPa
+climatempo.now[:pressure]
+#=> 1010 hPa
 
-  climatempo.now[:humidity]
-  #=> 50%
+climatempo.now[:humidity]
+#=> 50%
+~~~
 
-== Maintainer
+## Maintainer
 
 * Rogério Zambon (http://rogeriozambon.com)
 
