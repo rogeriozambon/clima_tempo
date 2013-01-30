@@ -30,7 +30,7 @@ climatempo.now[:humidity]
 
 * Rogério Zambon (http://rogeriozambon.com)
 
-== License
+## License
 
 (The MIT License)
 
