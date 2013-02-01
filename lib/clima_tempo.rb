@@ -30,6 +30,7 @@ class ClimaTempo
 
   private
   def request_page
+    RestClient.proxy = ENV["http_proxy"]
     request = RestClient.get "http://www.climatempo.com.br/previsao-do-tempo/cidade/#{@code}/empty"
 
     Nokogiri::HTML request.body
