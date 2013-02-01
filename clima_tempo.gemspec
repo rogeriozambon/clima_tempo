@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.name = "clima_tempo"
   s.authors = ["Rogério Zambon"]
   s.email = ["rogeriozambon@gmail.com"]
-  s.date = "2013-01-22"
+  s.date = "2013-02-01"
   s.description = "Get brazilian weather values of the ClimaTempo"
   s.homepage = "http://github.com/rogeriozambon/clima_tempo"
 
@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 1.8.23")
   s.summary = s.description
 
-  s.version = "1.0"
+  s.version = "1.01"
 end
