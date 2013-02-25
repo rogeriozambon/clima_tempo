@@ -28,7 +28,7 @@ climatempo.now[:humidity]
 
 ## Maintainer
 
-* Rogério Zambon (http://rogeriozambon.com)
+* Rogério Zambon (http://rogerio.me)
 
 ## License
 
