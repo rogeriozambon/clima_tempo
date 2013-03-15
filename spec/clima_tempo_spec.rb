@@ -1,5 +1,4 @@
-require_relative "../lib/clima_tempo"
-require "fakeweb"
+require "spec_helper"
 
 describe ClimaTempo do
   it "missing parameters" do
@@ -9,7 +8,7 @@ describe ClimaTempo do
   context "Values up to this moment" do
     before do
       fixture = File.open("spec/fixture/sao_paulo.html").read
-      FakeWeb.register_uri(:any, "http://www.climatempo.com.br/previsao-do-tempo/cidade/558/empty", :body => fixture)
+      FakeWeb.register_uri :any, "http://www.climatempo.com.br/previsao-do-tempo/cidade/558/empty", :body => fixture
 
       @climatempo = ClimaTempo.new :code => 558
     end
