@@ -23,7 +23,7 @@ class ClimaTempo
       :condition => prepare_value(values[1].text),
       :pressure => prepare_value(values[2].text),
       :intensity => prepare_value(values[3].text),
-      :humidity => prepare_value(values[4].text),
+      :moisture => prepare_value(values[4].text),
       :video => "http://www.climatempo.com.br#{region.first.attribute('href').value}"
     }
   end
@@ -31,6 +31,7 @@ class ClimaTempo
   private
   def request_page
     RestClient.proxy = ENV["http_proxy"]
+
     request = RestClient.get "http://www.climatempo.com.br/previsao-do-tempo/cidade/#{@code}/empty"
 
     Nokogiri::HTML request.body
