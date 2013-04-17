@@ -22,7 +22,7 @@ climatempo.now[:temperature]
 climatempo.now[:pressure]
 #=> 1010 hPa
 
-climatempo.now[:humidity]
+climatempo.now[:moisture]
 #=> 50%
 ~~~
 
