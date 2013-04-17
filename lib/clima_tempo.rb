@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require "rest_client"
+require "net/http"
 require "nokogiri"
 
 class ClimaTempo
@@ -30,11 +30,9 @@ class ClimaTempo
 
   private
   def request_page
-    RestClient.proxy = ENV["http_proxy"]
+    request = Net::HTTP.get URI.parse("http://www.climatempo.com.br/previsao-do-tempo/cidade/#{@code}/empty")
 
-    request = RestClient.get "http://www.climatempo.com.br/previsao-do-tempo/cidade/#{@code}/empty"
-
-    Nokogiri::HTML request.body
+    Nokogiri::HTML request
   end
 
   def prepare_value(value)
