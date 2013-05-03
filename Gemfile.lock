@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clima_tempo (2.0)
+    clima_tempo (2.2)
       nokogiri (>= 1.5.9)
 
 GEM
