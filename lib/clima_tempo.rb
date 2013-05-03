@@ -27,6 +27,8 @@ class ClimaTempo
     }
 
     now.merge! :video => "http://www.climatempo.com.br#{region.first.attribute('href').value}" unless region.first.nil?
+
+    now
   end
 
   private
