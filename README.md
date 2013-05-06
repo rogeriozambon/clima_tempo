@@ -14,15 +14,15 @@ gem install clima_tempo
 require "rubygems"
 require "clima_tempo"
 
-climatempo = ClimaTempo.new :code => 558
+climatempo = ClimaTempo.new(:code => 558).now
 
-climatempo.now[:temperature]
+climatempo[:temperature]
 #=> 25ºC
 
-climatempo.now[:pressure]
+climatempo[:pressure]
 #=> 1010 hPa
 
-climatempo.now[:moisture]
+climatempo[:moisture]
 #=> 50%
 ~~~
 
