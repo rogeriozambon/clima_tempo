@@ -13,16 +13,28 @@ class ClimaTempo
   end
 
   def now
-    page = request
+    @page ||= request
 
     {
-      :temperature => page[:temperature].text,
-      :wind => wind[prepare(page[:data][0].text)],
-      :condition => prepare(page[:data][1].text),
-      :pressure => prepare(page[:data][2].text),
-      :intensity => prepare(page[:data][3].text),
-      :moisture => prepare(page[:data][4].text)
+      :temperature => @page[:temperature].text,
+      :wind => wind[prepare(@page[:data][0].text)],
+      :condition => prepare(@page[:data][1].text),
+      :pressure => prepare(@page[:data][2].text),
+      :intensity => prepare(@page[:data][3].text),
+      :moisture => prepare(@page[:data][4].text)
     }
+  end
+
+  def today_forecast
+    @page ||= request
+
+    {
+      :condition => @page[:today_forecast][:condition].text,
+      :min => @page[:today_forecast][:min].text.gsub(/\s+/,''),
+      :max => @page[:today_forecast][:max].text,
+      :probability_of_precipitation => @page[:today_forecast][:probability_of_precipitation].text.gsub(/^\d+mm/,'')
+    }
+
   end
 
   private
@@ -32,7 +44,13 @@ class ClimaTempo
 
     {
       :temperature => request.xpath("//span[@class='left temp-momento top10']"),
-      :data => request.xpath("//li[@class='dados-momento-li list-style-none']")
+      :data => request.xpath("//li[@class='dados-momento-li list-style-none']"),
+      :today_forecast => {
+        :condition => request.xpath("//div[@class='box-prev-completa'][1]/span[@class='left left5 paragrafo-padrao top10 fraseologia-prev']"),
+        :min => request.xpath("//div[@class='box-prev-completa'][1]//span[@class='min']"),
+        :max => request.xpath("//div[@class='box-prev-completa'][1]//span[@class='max']"),
+        :probability_of_precipitation => request.xpath("//div[@class='box-prev-completa'][1]//li[@class='prob-chuva-prev-completa list-style-none']/span[2]")
+      }
     }
   end
 
