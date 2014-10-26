@@ -14,16 +14,13 @@ gem install clima_tempo
 require "rubygems"
 require "clima_tempo"
 
-climatempo = ClimaTempo.new(:code => 558).now
+clima_tempo = ClimaTempo.new(558)
 
-climatempo[:temperature]
-#=> 25ºC
+clima_tempo.now
+#=> { :temperature => "22ºC", :wind => "Su-sudeste", :condition => "Muitas nuvens", :pressure => "1015 hPa", :intensity => "11 km/h", :moisture => "73%" }
 
-climatempo[:pressure]
-#=> 1010 hPa
-
-climatempo[:moisture]
-#=> 50%
+clima_tempo.today_forecast
+#=> { :condition => "Sol com muitas nuvens. Pancadas de chuva à tarde e à noite.", :min => "17º", :max => "27º", :probability_of_precipitation => "64%" }
 ~~~
 
 ## Maintainer
