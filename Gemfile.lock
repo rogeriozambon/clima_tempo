@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     clima_tempo (2.4)
-      nokogiri (>= 1.5.9)
+      nokogiri (>= 1.6.3)
       rake
 
 GEM
@@ -33,4 +33,4 @@ PLATFORMS
 DEPENDENCIES
   clima_tempo!
   fakeweb (>= 1.3)
-  rspec (>= 2.13.0)
+  rspec (>= 3.1.0)
